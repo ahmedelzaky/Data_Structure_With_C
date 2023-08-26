@@ -48,10 +48,10 @@ Before you can build and use this project, make sure you have the following inst
 
 To use the stack and queue data structures in your C program, follow these steps:
 
-- Include the Data_Structer.h header file in your program:
+- Include the Data_Structure.h header file in your program:
 
 ```c
-#include "Data_Structer.h"
+#include "Data_Structure.h"
 Create a stack or queue using the provided functions (createStack or createQueue).
 ```
 
@@ -60,7 +60,7 @@ Create a stack or queue using the provided functions (createStack or createQueue
 Here's an example of using the stack:
 
 ```c
-#include "Data_Structer.h"
+#include "Data_Structure.h"
 
 int main() {
 Stack *stack = createStack();
