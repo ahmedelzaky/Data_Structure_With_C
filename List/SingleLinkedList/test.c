@@ -1,60 +1,72 @@
 #include "singleList.h"
 
-int32_t data;
-int32_t x = 3;
-struct SingleList *list1 = NULL;
-struct SingleList *list2 = NULL;
-
 int main()
 {
-    puts("<=======Start Append Test=======>");
-    for (size_t i = 1; i <= 10; i++)
+    struct SingleList *list1 = NULL;
+    struct SingleList *list2 = NULL;
+
+    // Append Test
+    puts("<======= Start Append Test =======>");
+
+    for (int i = 1; i <= 10; i++)
     {
         appendNode(&list1, i);
     }
 
     insertNode(&list1, 5, 1);
 
-    printf("size of list : %d \n", getListSize(list1));
+    printf("Size of list1: %lu\n", getListSize(list1));
 
-    getNodeData(list1, x, &data);
-    printf("data of index [%d] =  %d \n", x, data);
+    int32_t data;
+    if (getNodeData(list1, 3, &data) == Done)
+    {
+        printf("Data at index 3: %d\n", data);
+    }
+    else
+    {
+        printf("Failed to get data at index 3.\n");
+    }
 
-    deletNode(&list1, 0);
-
+    deleteNode(&list1, 0);
     setNodeData(list1, 4, 300);
-
     setNodeData(list1, 3, -1);
 
+    printf("List1: ");
     displayList(list1);
 
     freeList(list1);
-    puts("\n<=======End Append Test=======>");
+    puts("\n<======= End Append Test =======>");
 
-    puts("\n<=======Start push Test=======>");
+    // Push Test
+    puts("\n<======= Start Push Test =======>");
 
-    for (size_t i = 1; i <= 10; i++)
+    for (int i = 1; i <= 10; i++)
     {
         pushNode(&list2, i);
     }
-    
+
     insertNode(&list2, 5, 1);
 
-    printf("size of list : %d \n", getListSize(list2));
+    printf("Size of list2: %lu\n", getListSize(list2));
 
-    getNodeData(list2, x, &data);
+    if (getNodeData(list2, 3, &data) == Done)
+    {
+        printf("Data at index 3: %d\n", data);
+    }
+    else
+    {
+        printf("Failed to get data at index 3.\n");
+    }
 
-    printf("data of index [%d] =  %d \n", x, data);
-
-    deletNode(&list2, 0);
-
+    deleteNode(&list2, 0);
     setNodeData(list2, 4, 300);
-
     setNodeData(list2, 3, -1);
 
+    printf("List2: ");
     displayList(list2);
 
     freeList(list2);
+    puts("\n<======= End Push Test =======>");
 
-    puts("\n<=======End push Test=======>");
+    return 0;
 }

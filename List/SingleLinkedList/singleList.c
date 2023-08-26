@@ -27,8 +27,7 @@ Statue appendNode(struct SingleList **head, int32_t data)
 
     if (*head == NULL)
     {
-        temp = n;
-        *head = temp;
+        *head = n;
     }
     else
     {
@@ -46,7 +45,6 @@ Statue pushNode(struct SingleList **head, int32_t data)
 {
 
     struct SingleList *n = malloc(sizeof(struct SingleList));
-    struct SingleList *temp = *head;
 
     if (n == NULL)
     {
@@ -114,7 +112,7 @@ Statue setNodeData(struct SingleList *list, size_t index, int32_t data)
     return Done;
 }
 
-Statue deletNode(struct SingleList **list, size_t index)
+Statue deleteNode(struct SingleList **list, size_t index)
 {
     if (*list == NULL)
     {
@@ -218,12 +216,14 @@ Statue displayList(struct SingleList *list)
         return NULL_ERROR;
     }
     struct SingleList *temp = list;
+    printf("[");
+
     while (temp->next != NULL)
     {
-        printf("| %d | ", temp->data);
+        printf(" %d ,", temp->data);
         temp = (struct SingleList *)temp->next;
     }
-    printf("| %d | ", temp->data);
+    printf(" %d ]", temp->data);
 
     return Done;
 }
