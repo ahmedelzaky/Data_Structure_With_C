@@ -10,43 +10,25 @@
 #include "singleList.h"
 /*********************** Includes Section End ***********************/
 
-static uint8_t flag = 1;
-
-struct SingleList *createList()
+Statue appendNode(struct SingleList **head, int32_t data)
 {
+
     struct SingleList *n = malloc(sizeof(struct SingleList));
+    struct SingleList *temp = *head;
 
     if (n == NULL)
     {
         puts("Memory allocation failed");
         exit(EXIT_FAILURE);
     }
-    n->data = 0;
-    n->next = NULL;
-    return n;
-}
+    size_t size = getListSize(temp);
 
-Statue appendNode(struct SingleList *head, int32_t data)
-{
-
-    if (head == NULL)
+    if (*head == NULL)
     {
-        return NULL_ERROR;
-    }
-    struct SingleList *n = malloc(sizeof(struct SingleList));
-    struct SingleList *temp = head;
-
-    if (n == NULL)
-    {
-        puts("Memory allocation failed");
-        exit(EXIT_FAILURE);
-    }
-    size_t size = getListSize(head);
-
-    if (flag)
-    {
+        temp = n;
         temp->data = data;
-        flag = 0;
+        temp->next = NULL;
+        *head = temp;
     }
     else
     {
@@ -225,16 +207,11 @@ Statue displayList(struct SingleList *list)
 
 void freeList(struct SingleList *list)
 {
-    if (list == NULL)
+    struct SingleList *temp;
+    while (list != NULL)
     {
-        return;
+        temp = list;
+        list = list->next;
+        free(temp);
     }
-    struct SingleList *temp = list;
-    while (temp->next != NULL)
-    {
-        temp = temp->next;
-        free(list);
-        list = temp;
-    }
-    free(list);
 }

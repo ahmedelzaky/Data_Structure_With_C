@@ -1,3 +1,4 @@
+
 # Singly Linked List Implementation in C
 
 This repository contains a basic implementation of a singly linked list in C, along with various operations for manipulating the list.
@@ -58,7 +59,6 @@ To use this singly linked list implementation in your C project, follow these st
 
 ## Functions
 
-- `createList`: Creates an empty singly linked list and returns a pointer to it.
 
 - `appendNode`: Appends a node with the specified data to the end of the list.
 

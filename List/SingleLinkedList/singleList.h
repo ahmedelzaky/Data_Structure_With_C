@@ -18,8 +18,7 @@ typedef struct SingleList
     struct SingleList *next;
 } Node;
 
-struct SingleList *createList();
-Statue appendNode(struct SingleList *head, int32_t data);
+Statue appendNode(struct SingleList **head, int32_t data);
 Statue getNodeData(struct SingleList *list, size_t index, int32_t *data);
 Statue setNodeData(struct SingleList *list, size_t index, int32_t data);
 Statue deletNode(struct SingleList **list, size_t index);
