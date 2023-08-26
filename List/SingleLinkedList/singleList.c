@@ -21,13 +21,13 @@ Statue appendNode(struct SingleList **head, int32_t data)
         puts("Memory allocation failed");
         exit(EXIT_FAILURE);
     }
-    size_t size = getListSize(temp);
+
+    n->data = data;
+    n->next = NULL;
 
     if (*head == NULL)
     {
         temp = n;
-        temp->data = data;
-        temp->next = NULL;
         *head = temp;
     }
     else
@@ -36,10 +36,35 @@ Statue appendNode(struct SingleList **head, int32_t data)
         {
             temp = (struct SingleList *)temp->next;
         }
-
         temp->next = n;
-        n->data = data;
-        n->next = NULL;
+    }
+
+    return Done;
+}
+
+Statue pushNode(struct SingleList **head, int32_t data)
+{
+
+    struct SingleList *n = malloc(sizeof(struct SingleList));
+    struct SingleList *temp = *head;
+
+    if (n == NULL)
+    {
+        puts("Memory allocation failed");
+        exit(EXIT_FAILURE);
+    }
+
+    n->data = data;
+    n->next = NULL;
+
+    if (*head == NULL)
+    {
+        *head = n;
+    }
+    else
+    {
+        n->next = *head;
+        *head = n;
     }
 
     return Done;
@@ -139,7 +164,6 @@ Statue insertNode(struct SingleList **list, size_t index, int32_t data)
     }
 
     struct SingleList *temp1 = *list;
-    struct SingleList *temp2;
     struct SingleList *n = malloc(sizeof(struct SingleList));
 
     if (n == NULL)
@@ -162,8 +186,7 @@ Statue insertNode(struct SingleList **list, size_t index, int32_t data)
         {
             temp1 = temp1->next;
         }
-        temp2 = temp1->next;
-        n->next = temp2;
+        n->next = temp1->next;
         temp1->next = n;
     }
     return Done;
