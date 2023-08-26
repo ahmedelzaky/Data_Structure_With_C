@@ -48,7 +48,7 @@ Before you can build and use this project, make sure you have the following inst
 
 To use the stack and queue data structures in your C program, follow these steps:
 
--Include the Data_Structer.h header file in your program:
+- Include the Data_Structer.h header file in your program:
 
 ```c
 #include "Data_Structer.h"
