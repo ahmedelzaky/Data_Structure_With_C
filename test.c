@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Data_Structer.h"
+#include "Data_Structure.h"
 
 int data;
 

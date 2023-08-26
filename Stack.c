@@ -7,7 +7,7 @@
 */
 
 /*********************** Includes Section Start ***********************/
-#include "Data_Structer.h"
+#include "Data_Structure.h"
 /*********************** Includes Section End ***********************/
 
 Stack *createStack()
