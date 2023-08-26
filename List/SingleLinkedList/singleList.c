@@ -198,9 +198,9 @@ size_t getListSize(struct SingleList *list)
         return 0;
     }
     struct SingleList *temp = list;
-    size_t size = 1;
+    size_t size = 0;
 
-    while (temp->next != NULL)
+    while (temp != NULL)
     {
         temp = (struct SingleList *)temp->next;
         size++;
@@ -218,14 +218,38 @@ Statue displayList(struct SingleList *list)
     struct SingleList *temp = list;
     printf("[");
 
-    while (temp->next != NULL)
+    while (temp != NULL)
     {
         printf(" %d ,", temp->data);
         temp = (struct SingleList *)temp->next;
     }
-    printf(" %d ]", temp->data);
+    printf("\b]");
 
     return Done;
+}
+
+size_t searchInList(struct SingleList *list, int32_t data)
+{
+
+    if (list == NULL)
+    {
+        return NOT_FOUND;
+    }
+    struct SingleList *temp = list;
+    size_t index = -1;
+
+    while (temp->data != data)
+    {
+        index++;
+        temp = (struct SingleList *)temp->next;
+        if (temp == NULL)
+        {
+            index = NOT_FOUND;
+            break;
+        }
+    }
+
+    return index;
 }
 
 void freeList(struct SingleList *list)
