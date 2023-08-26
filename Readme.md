@@ -41,7 +41,7 @@ Before you can build and use this project, make sure you have the following inst
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/data-structures-in-c.git
+   git clone https://github.com/ahmedelzaky/Data_Structer_With_C.git
    ```
 
 ## Usage
