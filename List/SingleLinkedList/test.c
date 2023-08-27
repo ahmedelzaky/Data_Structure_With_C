@@ -1,14 +1,15 @@
 #include "singleList.h"
+#include <time.h>
 
 int main()
 {
     struct SingleList *list1 = NULL;
     struct SingleList *list2 = NULL;
+    struct SingleList *list3 = NULL;
 
-    // Append Test
-    puts("<======= Start Append Test =======>");
+    puts("<============== Start Append Test ==============>");
 
-    for (int i = 1; i <= 10; i++)
+    for (int i = 1; i <= 20; i++)
     {
         appendNode(&list1, i);
     }
@@ -36,12 +37,11 @@ int main()
     displayList(list1);
 
     freeList(list1);
-    puts("\n<======= End Append Test =======>");
+    puts("\n<============== End Append Test ==============>");
 
-    // Push Test
-    puts("\n<======= Start Push Test =======>");
+    puts("\n<============== Start Push Test ==============>");
 
-    for (int i = 1; i <= 10; i++)
+    for (int i = 1; i <= 20; i++)
     {
         pushNode(&list2, i);
     }
@@ -67,7 +67,28 @@ int main()
     displayList(list2);
 
     freeList(list2);
-    puts("\n<======= End Push Test =======>");
+    puts("\n<============== End Push Test ==============>");
+
+    puts("\n<============== Start Sort Test ==============>");
+
+    srand(time(NULL));
+
+    for (int i = 1; i <= 20; i++)
+    {
+        int randomNumber = rand() % 20 + 1;
+        appendNode(&list3, randomNumber);
+    }
+
+    printf("Before Sorting List3: ");
+    displayList(list3);
+
+    sortList(list3);
+
+    printf("\n\nAfter Sorting List3: ");
+    displayList(list3);
+      
+    freeList(list3);
+    puts("\n<============== End Sort Test ==============>");
 
     return 0;
 }

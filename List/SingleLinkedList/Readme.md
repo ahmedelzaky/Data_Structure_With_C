@@ -72,6 +72,8 @@ To use this singly linked list implementation in your C project, follow these st
 
 - `getListSize`: Returns the size of the list.
 
+- `sortList`: Sort the list in ascending .
+
 - `displayList`: Displays the elements of the list.
 
 - `searchInList`: Returns the index of the first occurrence of value , If the value is not found or if the list is empty, it returns -1.

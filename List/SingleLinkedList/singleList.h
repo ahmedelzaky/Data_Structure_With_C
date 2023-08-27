@@ -26,6 +26,7 @@ Statue deleteNode(struct SingleList **list, size_t index);
 Statue insertNode(struct SingleList **list, size_t index, int32_t data);
 size_t getListSize(struct SingleList *list);
 Statue displayList(struct SingleList *list);
+Statue sortList(struct SingleList *list);
 size_t searchInList(struct SingleList *list, int32_t data);
 void freeList(struct SingleList *list);
 
