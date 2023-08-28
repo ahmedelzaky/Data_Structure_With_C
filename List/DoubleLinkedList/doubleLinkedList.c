@@ -184,7 +184,31 @@ Statue displayListReverse(struct dlList *list)
 
 Statue sortList(struct dlList *list) {}
 
-size_t searchInList(struct dlList *list, int32_t data) {}
+size_t searchInList(struct dlList *list, int32_t data)
+{
+    size_t index = 0; 
+  
+    if(list == NULL)
+    {
+        puts("Error !!");
+        return NULL_ERROR;
+    }
+    
+    struct dlList *tempList =  list;
+    
+    while (tempList->data != data) 
+    {
+        index++;
+        tempList = tempList->next;
+        if(tempList == NULL)
+        {
+            index = NOT_FOUND;
+            break;
+        }
+    }
+    
+    return index;
+}
 
 void freeList(struct dlList *list)
 {

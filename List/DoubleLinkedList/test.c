@@ -31,7 +31,7 @@ int main()
         printf("Failed to get data at index 2.\n");
     }
 
-    // printf("index of 8 in list1 : %d\n", searchInList(list1, 8));
+    printf("index of 8 in list1 : %d\n", searchInList(list1, 8));
 
     printf("List1: ");
     displayList(list1);
@@ -64,7 +64,7 @@ int main()
     {
         printf("Failed to get data at index 2.\n");
     }
-    //   printf("index of 8 in list2 : %d\n", searchInList(list2, 8));
+    printf("index of 8 in list2 : %d\n", searchInList(list2, 8));
 
     printf("List2: ");
     displayList(list2);
