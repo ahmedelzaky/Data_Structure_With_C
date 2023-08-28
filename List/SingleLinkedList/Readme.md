@@ -26,16 +26,16 @@ This repository contains a basic implementation of a singly linked list in C, al
 
 To use this singly linked list implementation in your C project, follow these steps:
 
-1. Include the `single_list.h` header in your C file:
+1. Include the `singleLinkedList.h` header in your C file:
 
    ```c
-   #include "single_list.h"
+   #include "singleLinkedList.h"
    ```
 
-2. Create a list using the `createList` function:
+2. Create a list:
 
    ```c
-   struct SingleList *myList = createList();
+   struct slList *myList = NULL;
    ```
 
 3. Perform various operations on the list using the provided functions. For example:

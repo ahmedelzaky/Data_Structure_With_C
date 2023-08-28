@@ -1,20 +1,20 @@
 /**
 *****************************************************************************
-* @file             :singleList.c
+* @file             :singleLinkedList.c
 * @author           :Ahmed Elzaki
 * @brief            :Simple Implementation of Single Linked List
 *****************************************************************************
 */
 
 /*********************** Includes Section Start ***********************/
-#include "singleList.h"
+#include "singleLinkedList.h"
 /*********************** Includes Section End ***********************/
 
-Statue appendNode(struct SingleList **head, int32_t data)
+Statue appendNode(struct slList **head, int32_t data)
 {
 
-    struct SingleList *newNode = malloc(sizeof(struct SingleList));
-    struct SingleList *tempList = *head;
+    struct slList *newNode = malloc(sizeof(struct slList));
+    struct slList *tempList = *head;
 
     if (newNode == NULL)
     {
@@ -33,7 +33,7 @@ Statue appendNode(struct SingleList **head, int32_t data)
     {
         while (tempList->next != NULL)
         {
-            tempList = (struct SingleList *)tempList->next;
+            tempList = (struct slList *)tempList->next;
         }
         tempList->next = newNode;
     }
@@ -41,10 +41,10 @@ Statue appendNode(struct SingleList **head, int32_t data)
     return Done;
 }
 
-Statue pushNode(struct SingleList **head, int32_t data)
+Statue pushNode(struct slList **head, int32_t data)
 {
 
-    struct SingleList *newNode = malloc(sizeof(struct SingleList));
+    struct slList *newNode = malloc(sizeof(struct slList));
 
     if (newNode == NULL)
     {
@@ -68,14 +68,14 @@ Statue pushNode(struct SingleList **head, int32_t data)
     return Done;
 }
 
-Statue getNodeData(struct SingleList *list, size_t index, int32_t *data)
+Statue getNodeData(struct slList *list, size_t index, int32_t *data)
 {
     if (list == NULL)
     {
         return NULL_ERROR;
     }
     size_t size = getListSize(list);
-    struct SingleList *tempList = list;
+    struct slList *tempList = list;
     if (index >= size)
     {
         return OUT_OFF_BOUNDRY;
@@ -83,21 +83,21 @@ Statue getNodeData(struct SingleList *list, size_t index, int32_t *data)
 
     for (size_t i = 0; i < index; i++)
     {
-        tempList = (struct SingleList *)tempList->next;
+        tempList = (struct slList *)tempList->next;
     }
     *data = tempList->data;
 
     return Done;
 }
 
-Statue setNodeData(struct SingleList *list, size_t index, int32_t data)
+Statue setNodeData(struct slList *list, size_t index, int32_t data)
 {
     if (list == NULL)
     {
         return NULL_ERROR;
     }
     size_t size = getListSize(list);
-    struct SingleList *tempList = list;
+    struct slList *tempList = list;
     if (index >= size)
     {
         return OUT_OFF_BOUNDRY;
@@ -105,14 +105,14 @@ Statue setNodeData(struct SingleList *list, size_t index, int32_t data)
 
     for (size_t i = 0; i < index; i++)
     {
-        tempList = (struct SingleList *)tempList->next;
+        tempList = (struct slList *)tempList->next;
     }
     tempList->data = data;
 
     return Done;
 }
 
-Statue deleteNode(struct SingleList **list, size_t index)
+Statue deleteNode(struct slList **list, size_t index)
 {
     if (*list == NULL)
     {
@@ -126,8 +126,8 @@ Statue deleteNode(struct SingleList **list, size_t index)
         return OUT_OFF_BOUNDRY;
     }
 
-    struct SingleList *temp1 = *list;
-    struct SingleList *temp2;
+    struct slList *temp1 = *list;
+    struct slList *temp2;
 
     if (index == 0)
     {
@@ -147,7 +147,7 @@ Statue deleteNode(struct SingleList **list, size_t index)
     return Done;
 }
 
-Statue insertNode(struct SingleList **list, size_t index, int32_t data)
+Statue insertNode(struct slList **list, size_t index, int32_t data)
 {
     if (*list == NULL)
     {
@@ -161,8 +161,8 @@ Statue insertNode(struct SingleList **list, size_t index, int32_t data)
         return OUT_OFF_BOUNDRY;
     }
 
-    struct SingleList *temp1 = *list;
-    struct SingleList *newNode = malloc(sizeof(struct SingleList));
+    struct slList *temp1 = *list;
+    struct slList *newNode = malloc(sizeof(struct slList));
 
     if (newNode == NULL)
     {
@@ -190,58 +190,58 @@ Statue insertNode(struct SingleList **list, size_t index, int32_t data)
     return Done;
 }
 
-size_t getListSize(struct SingleList *list)
+size_t getListSize(struct slList *list)
 {
     if (list == NULL)
     {
         puts("Error!!");
         return 0;
     }
-    struct SingleList *tempList = list;
+    struct slList *tempList = list;
     size_t size = 0;
 
     while (tempList != NULL)
     {
-        tempList = (struct SingleList *)tempList->next;
+        tempList = (struct slList *)tempList->next;
         size++;
     }
 
     return size;
 }
 
-Statue displayList(struct SingleList *list)
+Statue displayList(struct slList *list)
 {
     if (list == NULL)
     {
         return NULL_ERROR;
     }
-    struct SingleList *tempList = list;
+    struct slList *tempList = list;
     printf("[");
 
     while (tempList != NULL)
     {
         printf(" %d ,", tempList->data);
-        tempList = (struct SingleList *)tempList->next;
+        tempList = (struct slList *)tempList->next;
     }
     printf("\b]");
 
     return Done;
 }
 
-size_t searchInList(struct SingleList *list, int32_t data)
+size_t searchInList(struct slList *list, int32_t data)
 {
 
     if (list == NULL)
     {
         return NULL_ERROR;
     }
-    struct SingleList *tempList = list;
+    struct slList *tempList = list;
     size_t index = 0;
 
     while (tempList->data != data)
     {
         index++;
-        tempList = (struct SingleList *)tempList->next;
+        tempList = (struct slList *)tempList->next;
         if (tempList == NULL)
         {
             index = NOT_FOUND;
@@ -252,14 +252,14 @@ size_t searchInList(struct SingleList *list, int32_t data)
     return index;
 }
 
-Statue sortList(struct SingleList *list)
+Statue sortList(struct slList *list)
 {
     if (list == NULL)
     {
         return NULL_ERROR;
     }
-    struct SingleList *tempList = list;
-    struct SingleList *temp = list->next;
+    struct slList *tempList = list;
+    struct slList *temp = list->next;
     int32_t tempData = 0;
     size_t size = getListSize(list);
 
@@ -289,9 +289,9 @@ Statue sortList(struct SingleList *list)
     return Done;
 }
 
-void freeList(struct SingleList *list)
+void freeList(struct slList *list)
 {
-    struct SingleList *tempList;
+    struct slList *tempList;
     while (list != NULL)
     {
         tempList = list;
