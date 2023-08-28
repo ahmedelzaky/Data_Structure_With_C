@@ -74,26 +74,26 @@ int main()
     freeList(list2);
     puts("<============== End Push Test ==============>");
 
-    // puts("\n<============== Start Sort Test ==============>");
+    puts("\n<============== Start Sort Test ==============>");
 
-    // srand(time(NULL));
+    srand(time(NULL));
 
-    // for (int i = 1; i <= 20; i++)
-    // {
-    //     int randomNumber = rand() % 20 + 1;
-    //     appendNode(&list3, randomNumber);
-    // }
+    for (int i = 1; i <= 20; i++)
+    {
+        int randomNumber = rand() % 20 + 1;
+        appendNode(&list3, randomNumber);
+    }
 
-    // printf("Before Sorting List3: ");
-    // displayList(list3);
+    printf("Before Sorting List3: ");
+    displayList(list3);
 
-    // sortList(list3);
+    sortList(list3);
 
-    // printf("\n\nAfter Sorting List3: ");
-    // displayList(list3);
+    printf("\nAfter Sorting List3: ");
+    displayList(list3);
 
-    // freeList(list3);
-    // puts("\n<============== End Sort Test ==============>");
+    freeList(list3);
+    puts("<============== End Sort Test ==============>");
 
     return 0;
 }

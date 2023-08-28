@@ -182,31 +182,66 @@ Statue displayListReverse(struct dlList *list)
     return Done;
 }
 
-Statue sortList(struct dlList *list) {}
+Statue sortList(struct dlList *list)
+{
+    if (list == NULL)
+    {
+        return NULL_ERROR;
+    }
+    struct dlList *tempList = list;
+    struct dlList *temp = list->next;
+    int32_t tempData = 0;
+    size_t size = getListSize(list);
+
+    for (size_t i = 0; i < size; i++)
+    {
+        int8_t flag = 1;
+        while (temp != NULL)
+        {
+            if (tempList->data > temp->data)
+            {
+                flag = 0;
+                tempData = tempList->data;
+                tempList->data = temp->data;
+                temp->data = tempData;
+            }
+            temp = temp->next;
+            tempList = tempList->next;
+        }
+        if (flag)
+        {
+            return Done;
+        }
+        tempList = list;
+        temp = list->next;
+    }
+
+    return Done;
+}
 
 size_t searchInList(struct dlList *list, int32_t data)
 {
-    size_t index = 0; 
-  
-    if(list == NULL)
+    size_t index = 0;
+
+    if (list == NULL)
     {
         puts("Error !!");
         return NULL_ERROR;
     }
-    
-    struct dlList *tempList =  list;
-    
-    while (tempList->data != data) 
+
+    struct dlList *tempList = list;
+
+    while (tempList->data != data)
     {
         index++;
         tempList = tempList->next;
-        if(tempList == NULL)
+        if (tempList == NULL)
         {
             index = NOT_FOUND;
             break;
         }
     }
-    
+
     return index;
 }
 
