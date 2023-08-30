@@ -136,7 +136,6 @@ Statue deleteNode(struct dlList **list, size_t index)
     {
         *list = tempList->next;
         (*list)->prev = NULL;
-        free(tempList);
     }
     else
     {
@@ -154,8 +153,8 @@ Statue deleteNode(struct dlList **list, size_t index)
             tempnode->next = tempList->next;
             tempList->next->prev = tempnode;
         }
-        free(tempList);
     }
+    free(tempList);
     return Done;
 }
 
