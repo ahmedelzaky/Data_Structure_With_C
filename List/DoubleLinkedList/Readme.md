@@ -38,7 +38,7 @@ The program demonstrates how to use the provided doubly linked list functions. I
 - `getNodeData`: Retrieves data at a specific index.
 - `setNodeData`: Sets data at a specific index.
 - `deleteNode`: Deletes a node at a specific index (not yet implemented).
-- `insertNode`: Inserts a node at a specific index (not yet implemented).
+- `insertNode`: Inserts a node at a specific index.
 - `getListSize`: Gets the size of the list.
 - `displayList`: Displays the list.
 - `displayListReverse`: Displays the list in reverse.

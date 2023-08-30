@@ -15,7 +15,7 @@ int main()
     }
 
     // deleteNode(&list1, 0);
-    // insertNode(&list1, 5, 1);
+    insertNode(&list1, 5, -51);
     setNodeData(list1, 4, 300);
     setNodeData(list1, 3, -1);
 
@@ -50,7 +50,7 @@ int main()
     }
 
     // deleteNode(&list2, 0);
-    // insertNode(&list2, 5, 1);
+    insertNode(&list2, 5, -51);
     setNodeData(list2, 4, 300);
     setNodeData(list2, 3, -1);
 

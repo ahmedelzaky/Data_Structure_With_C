@@ -117,7 +117,54 @@ Statue setNodeData(struct dlList *list, size_t index, int32_t data)
 
 Statue deleteNode(struct dlList **list, size_t index) {}
 
-Statue insertNode(struct dlList **list, size_t index, int32_t data) {}
+Statue insertNode(struct dlList **list, size_t index, int32_t data)
+{
+
+    if (*list == NULL)
+    {
+        return NULL_ERROR;
+    }
+
+    size_t size = getListSize(*list);
+
+    if (index > size)
+    {
+        return OUT_OFF_BOUNDRY;
+    }
+
+    struct dlList *tempList = *list;
+    struct dlList *newNode = malloc(sizeof(struct dlList));
+
+    if (newNode == NULL)
+    {
+        puts("Memory allocation failed");
+        exit(EXIT_FAILURE);
+    }
+
+    newNode->data = data;
+
+    if (index == 0)
+    {
+        pushNode(list, data);
+    }
+    else if (index == size)
+    {
+        appendNode(list, data);
+    }
+
+    else
+    {
+        for (size_t i = 0; i < index - 1; i++)
+        {
+            tempList = tempList->next;
+        }
+        newNode->next = tempList->next;
+        newNode->prev = tempList;
+        tempList->next->prev = newNode;
+        tempList->next = newNode;
+    }
+    return Done;
+}
 
 size_t getListSize(struct dlList *list)
 {
