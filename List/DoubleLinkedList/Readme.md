@@ -37,7 +37,7 @@ The program demonstrates how to use the provided doubly linked list functions. I
 - `pushNode`: Adds a node to the beginning of the list.
 - `getNodeData`: Retrieves data at a specific index.
 - `setNodeData`: Sets data at a specific index.
-- `deleteNode`: Deletes a node at a specific index (not yet implemented).
+- `deleteNode`: Deletes a node at a specific index.
 - `insertNode`: Inserts a node at a specific index.
 - `getListSize`: Gets the size of the list.
 - `displayList`: Displays the list.

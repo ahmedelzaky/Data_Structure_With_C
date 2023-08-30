@@ -115,7 +115,49 @@ Statue setNodeData(struct dlList *list, size_t index, int32_t data)
     return Done;
 }
 
-Statue deleteNode(struct dlList **list, size_t index) {}
+Statue deleteNode(struct dlList **list, size_t index)
+{
+    if (*list == NULL)
+    {
+        return NULL_ERROR;
+    }
+
+    size_t size = getListSize(*list);
+
+    if (index >= size)
+    {
+        return OUT_OFF_BOUNDRY;
+    }
+
+    struct dlList *tempList = *list;
+    struct dlList *tempnode;
+
+    if (index == 0)
+    {
+        *list = tempList->next;
+        (*list)->prev = NULL;
+        free(tempList);
+    }
+    else
+    {
+        for (size_t i = 0; i < index; i++)
+        {
+            tempList = tempList->next;
+        }
+        if (tempList->next == NULL)
+        {
+            tempList->prev->next = NULL;
+        }
+        else
+        {
+            tempnode = tempList->prev;
+            tempnode->next = tempList->next;
+            tempList->next->prev = tempnode;
+        }
+        free(tempList);
+    }
+    return Done;
+}
 
 Statue insertNode(struct dlList **list, size_t index, int32_t data)
 {
