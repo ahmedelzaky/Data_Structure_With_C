@@ -72,7 +72,11 @@ To use this singly linked list implementation in your C project, follow these st
 
 - `getListSize`: Returns the size of the list.
 
-- `sortList`: Sort the list in ascending .
+- `sortList`: Sort the list in ascending.
+
+- `reverseList`: Reverse the list.
+
+- `swapNodes`: Swap two nodes in the list.
 
 - `displayList`: Displays the elements of the list.
 

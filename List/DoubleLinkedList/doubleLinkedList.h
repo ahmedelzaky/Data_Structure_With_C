@@ -28,6 +28,8 @@ Statue insertNode(struct dlList **list, size_t index, int32_t data);
 size_t getListSize(struct dlList *list);
 Statue displayList(struct dlList *list);
 Statue displayListReverse(struct dlList *list);
+Statue swapNodes(struct dlList *list, size_t index1, size_t index2);
+Statue reverseList(struct dlList **list);
 Statue sortList(struct dlList *list);
 size_t searchInList(struct dlList *list, int32_t data);
 void freeList(struct dlList *list);

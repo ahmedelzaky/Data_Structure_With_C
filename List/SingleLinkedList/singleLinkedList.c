@@ -226,6 +226,77 @@ Statue displayList(struct slList *list)
     return Done;
 }
 
+Statue swapNodes(struct slList *list, size_t index1, size_t index2)
+{
+    if (list == NULL)
+    {
+        return NULL_ERROR;
+    }
+
+    size_t size = getListSize(list);
+
+    if (index1 >= size || index2 >= size)
+    {
+        return OUT_OFF_BOUNDRY;
+    }
+
+    struct slList *tempList = list;
+    struct slList *tempNode1;
+    struct slList *tempNode2;
+    size_t count = 0;
+    int32_t tempData;
+
+    if (index1 == index2)
+    {
+        return Done;
+    }
+
+    if (index1 > index2)
+    {
+        size_t temp = index1;
+        index1 = index2;
+        index2 = temp;
+    }
+    while (index2--)
+    {
+        if (index1 == count)
+        {
+            tempNode1 = tempList;
+        }
+        tempList = tempList->next;
+        count++;
+    }
+    tempNode2 = tempList;
+
+    tempData = tempNode1->data;
+    tempNode1->data = tempNode2->data;
+    tempNode2->data = tempData;
+
+    return Done;
+}
+
+Statue reverseList(struct slList **list)
+{
+    if (*list == NULL)
+    {
+        return NULL_ERROR;
+    }
+    struct slList *tempList = *list;
+    struct slList *temp = NULL;
+    struct slList *temp2 = NULL;
+
+    while (tempList != NULL)
+    {
+        temp2 = tempList->next;
+        tempList->next = temp;
+        temp = tempList;
+        tempList = temp2;
+    }
+    *list = temp;
+
+    return Done;
+}
+
 size_t searchInList(struct slList *list, int32_t data)
 {
 

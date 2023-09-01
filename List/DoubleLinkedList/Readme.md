@@ -42,8 +42,11 @@ The program demonstrates how to use the provided doubly linked list functions. I
 - `getListSize`: Gets the size of the list.
 - `displayList`: Displays the list.
 - `displayListReverse`: Displays the list in reverse.
+- `swapNodes`: Swaps two nodes.
+- `reverseList`: Reverses the list.
 - `sortList`: Sorts the list in ascending order.
 - `searchInList`: Searches for an element and returns its index.
+- `freeList`: Frees the list.
 
 ## Contributing
 

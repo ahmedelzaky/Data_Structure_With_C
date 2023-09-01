@@ -6,6 +6,7 @@ int main()
     struct dlList *list1 = NULL;
     struct dlList *list2 = NULL;
     struct dlList *list3 = NULL;
+    struct dlList *list4 = NULL;
 
     puts("<============== Start Append Test ==============>");
 
@@ -95,5 +96,25 @@ int main()
     freeList(list3);
     puts("<============== End Sort Test ==============>");
 
+    puts("\n<============== Start Swap & Reverse Test ==============>");
+    for (int i = 1; i <= 20; i++)
+    {
+        appendNode(&list4, i);
+    }
+
+    printf("Before Reversing List4: ");
+    displayList(list4);
+
+    reverseList(&list4);
+    printf("\n\nAfter Reversing List4: ");
+    displayList(list4);
+
+    swapNodes(list4, 0, 19);
+
+    printf("\n\nAfter Swapping List4: ");
+    displayList(list4);
+
+    freeList(list4);
+    puts("\n<============== End Swap & Reverse Test ==============>");
     return 0;
 }

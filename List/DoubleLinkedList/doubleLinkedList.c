@@ -270,6 +270,82 @@ Statue displayListReverse(struct dlList *list)
     return Done;
 }
 
+Statue swapNodes(struct dlList *list, size_t index1, size_t index2)
+{
+
+    if (list == NULL)
+    {
+        return NULL_ERROR;
+    }
+
+    size_t size = getListSize(list);
+
+    if (index1 >= size || index2 >= size)
+    {
+        return OUT_OFF_BOUNDRY;
+    }
+
+    struct dlList *tempList = list;
+    struct dlList *tempNode1;
+    struct dlList *tempNode2;
+    size_t count = 0;
+    int32_t tempData;
+
+    if (index1 == index2)
+    {
+        return Done;
+    }
+
+    if (index1 > index2)
+    {
+        size_t temp = index1;
+        index1 = index2;
+        index2 = temp;
+    }
+    while (index2--)
+    {
+        if (index1 == count)
+        {
+            tempNode1 = tempList;
+        }
+        tempList = tempList->next;
+        count++;
+    }
+    tempNode2 = tempList;
+
+    tempData = tempNode1->data;
+    tempNode1->data = tempNode2->data;
+    tempNode2->data = tempData;
+
+    return Done;
+}
+
+Statue reverseList(struct dlList **list)
+{
+    if (*list == NULL)
+    {
+        return NULL_ERROR;
+    }
+
+    struct dlList *tempList = *list;
+    struct dlList *tempNode = NULL;
+
+    while (tempList != NULL)
+    {
+        tempNode = tempList->prev;
+        tempList->prev = tempList->next;
+        tempList->next = tempNode;
+        tempList = tempList->prev;
+    }
+
+    if (tempNode != NULL)
+    {
+        *list = tempNode->prev;
+    }
+
+    return Done;
+}
+
 Statue sortList(struct dlList *list)
 {
     if (list == NULL)
